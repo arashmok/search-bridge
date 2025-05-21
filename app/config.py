@@ -1,7 +1,16 @@
-from pydantic import BaseSettings
+"""
+Configuration handling for the SearchBridge API
+"""
 from functools import lru_cache
-import os
 from typing import Optional
+
+# For Pydantic v2 compatibility
+try:
+    # Try importing from pydantic-settings (Pydantic v2)
+    from pydantic_settings import BaseSettings
+except ImportError:
+    # Fall back to Pydantic v1 approach
+    from pydantic import BaseSettings
 
 class Settings(BaseSettings):
     # API keys

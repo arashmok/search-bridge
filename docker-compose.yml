@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  search-api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./.env:/app/.env:ro
+    restart: unless-stopped
+    environment:
+      - SEARCH_GOOGLE_API_KEY=${SEARCH_GOOGLE_API_KEY}
+      - SEARCH_GOOGLE_CX=${SEARCH_GOOGLE_CX}
+      - SEARCH_BING_API_KEY=${SEARCH_BING_API_KEY}
